@@ -2,7 +2,7 @@
 
 namespace Vsite.CSharp
 {
-    public class JavnaBazna
+    public class JavnaBazna 
     {
         public void IspišiMe()
         {
@@ -10,7 +10,7 @@ namespace Vsite.CSharp
         }
     }
 
-    class Bazna
+    public class Bazna
     {
         public void IspišiMe()
         {

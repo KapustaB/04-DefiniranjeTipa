@@ -2,11 +2,11 @@
 
 namespace Vsite.CSharp
 {
-    public class IzvedenaIzJavneBazne // : JavnaBazna
+    public class IzvedenaIzJavneBazne  : JavnaBazna
     {
     }
 
-    public class IzvedenaIzBazne // : Bazna
+    public class IzvedenaIzBazne  : Bazna
     {
     }
 
@@ -20,11 +20,13 @@ namespace Vsite.CSharp
         }
     }
 
-    public class IzvedenaIzInterneBazne
+    public class IzvedenaIzInterneBazne 
     {
-
+        InternaBazna baza = new InternaBazna();
+        
         public void IspišiMe()
         {
+            baza.IspišiMe();
         }
     }
 }
