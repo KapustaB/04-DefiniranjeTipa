@@ -13,18 +13,23 @@ namespace Vsite.CSharp
     {
         public static void StvoriObjektPodrazumijevanimKonstruktorom()
         {
-            // TODO: Stvoriti objekt klase Osoba i ispisati vrijednosti članova Ime, Prezime, DatumRođenja
+            // TODO: Stvoriti objekt klase Osoba i ispisati vrijednosti članova Ime, Prezime, 
+            //DatumRođenja
+            
 
 
-            // TODO: U klasu Osoba dodati prazni konstruktor koji inicijalizira članove objekta na neku vrijednost, ponovno pokrenuti program i provjeriti ispis.
+            // TODO: U klasu Osoba dodati prazni konstruktor koji inicijalizira članove objekta 
+            //na neku vrijednost, ponovno pokrenuti program i provjeriti ispis.
 
 
         }
 
         public static void StvoriObjektZadanimKonstruktorom(string ime, string prezime, DateTime datumRođenja)
         {
-            // TODO: U klasi Osoba promijeniti prazan konstruktor tako da prima 3 argumenta (ime, prezime, datumRođenja) kojima se inicijaliziraju članovi objekta.
-            // TODO: Stvoriti objekt klase Osoba pozivom tog konstruktora i ispisati vrijednosti članova Ime, Prezime, DatumRođenja
+            // TODO: U klasi Osoba promijeniti prazan konstruktor tako da prima 3 argumenta (ime, 
+            //prezime, datumRođenja) kojima se inicijaliziraju članovi objekta.
+            // TODO: Stvoriti objekt klase Osoba pozivom tog konstruktora i ispisati vrijednosti 
+            //članova Ime, Prezime, DatumRođenja
 
 
         }

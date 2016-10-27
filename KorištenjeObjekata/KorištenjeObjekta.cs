@@ -14,7 +14,7 @@ namespace Vsite.CSharp
         //svojstva DateTime.Now
         public static void IspišiTrenutniDatumVrijeme()
         {
-            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.Now.ToString());
         }
 
         // TODO: Ispisati današnji datum pomoću statičkog svojstva
