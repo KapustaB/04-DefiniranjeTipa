@@ -12,8 +12,8 @@ namespace Vsite.CSharp
         {
             ~KlasaSDestruktorom()
             {
-                Console.WriteLine($"Destruktor objekta br. {0}.", RedniBroj);
-                Debug.WriteLine($"Destruktor objekta br. {0}.", RedniBroj);
+                Console.WriteLine($"Destruktor objekta br. {0}.");
+                Debug.WriteLine($"Destruktor objekta br. {0}.");
             }
         }
 
