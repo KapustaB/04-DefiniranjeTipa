@@ -8,34 +8,33 @@ namespace Vsite.CSharp.Testovi
     public class TestStatičkihČlanova : ConsoleTest
     {
         [TestMethod]
-        public void StatičkiČlanovi_IspišiBrojStvorenihObjekataIspisujeNaPočetku0()
-        {
-            BrojačInstanci.IspišiBrojStvorenihObjekata();
-            Assert.AreEqual(0, cw.GetInt());
-        }
-
-        [TestMethod]
         public void StatičkiČlanovi_IspišiBrojStvorenihObjekataIspisujeBrojStvorenihObjekata()
         {
+            BrojačInstanci.IspišiBrojStvorenihObjekata();
+            int brojObjekata = cw.GetInt();
+
             BrojačInstanci bi = new BrojačInstanci();
             BrojačInstanci.IspišiBrojStvorenihObjekata();
-            Assert.AreEqual(1, cw.GetInt());
+            Assert.AreEqual(++brojObjekata, cw.GetInt());
 
             bi = new BrojačInstanci();
             BrojačInstanci.IspišiBrojStvorenihObjekata();
-            Assert.AreEqual(2, cw.GetInt());
+            Assert.AreEqual(++brojObjekata, cw.GetInt());
         }
 
         [TestMethod]
         public void StatičkiČlanovi_IspišiRedniBrojObjektaIspisujeRedniBroj()
         {
+            BrojačInstanci.IspišiBrojStvorenihObjekata();
+            int brojObjekata = cw.GetInt();
+
             BrojačInstanci bi = new BrojačInstanci();
             bi.IspišiRedniBrojObjekta();
-            Assert.AreEqual(1, cw.GetInt());
+            Assert.AreEqual(++brojObjekata, cw.GetInt());
 
             bi = new BrojačInstanci();
             bi.IspišiRedniBrojObjekta();
-            Assert.AreEqual(2, cw.GetInt());
+            Assert.AreEqual(++brojObjekata, cw.GetInt());
         }
     }
 }

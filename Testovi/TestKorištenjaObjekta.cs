@@ -1,37 +1,72 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Vsite.CSharp;
+using System.Globalization;
 
 namespace Vsite.CSharp.Testovi
 {
+    class VremenskiInterval
+    {
+        public void Zaključi()
+        {
+            this.završniTrenutak = DateTime.Now;
+        }
+
+        public bool JeLiTrenutakIzIntervala(DateTime trenutak)
+        {
+            Zaključi();
+            return trenutak >= početniTrenutak && trenutak <= završniTrenutak;
+        }
+
+        public bool JeLiDatumIzIntervala(DateTime datum)
+        {
+            Zaključi();
+            return datum >= početniTrenutak.Date && datum <= završniTrenutak.Date;
+        }
+
+        public bool JeLiVrijemeUDanuUMinutamaIzIntervala(DateTime vrijemeUMinutama)
+        {
+            Zaključi();
+            return vrijemeUMinutama >= početniTrenutak.AddMinutes(-1) && vrijemeUMinutama <= završniTrenutak;
+        }
+
+        private DateTime početniTrenutak = DateTime.Now;
+        private DateTime završniTrenutak;
+    }
+
     [TestClass]
     public class TestKorištenjaObjekta : ConsoleTest
     {
         [TestMethod]
         public void KorištenjeObjekta_IspišiTrenutniDatumVrijemeIspisujeTrenutnuVrijednost()
         {
-            DateTime trenutnoVrijeme = DateTime.Now;
+            VremenskiInterval vi = new VremenskiInterval();
             KorištenjeObjekata.IspišiTrenutniDatumVrijeme();
+
             object obj = cw.GetObject();
             string ispisano = obj as string;
             DateTime ispisanoVrijeme = ispisano != null ? DateTime.Parse(ispisano) : (DateTime)obj;
-            Assert.IsTrue((trenutnoVrijeme - ispisanoVrijeme).Seconds <= 1);
+            Assert.IsTrue(vi.JeLiTrenutakIzIntervala(ispisanoVrijeme));
         }
 
         [TestMethod]
         public void KorištenjeObjekta_IspišiDanašnjiDatumIspisujeDanašnjiDatum()
         {
+            VremenskiInterval vi = new VremenskiInterval();
             KorištenjeObjekata.IspišiDanašnjiDatum();
-            Assert.AreEqual(DateTime.Now.ToShortDateString(), cw.GetString());
+
+            DateTime ispisaniDatum = DateTime.ParseExact(cw.GetString(), CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern, CultureInfo.CurrentCulture);
+            Assert.IsTrue(vi.JeLiDatumIzIntervala(ispisaniDatum));
         }
 
         [TestMethod]
         public void KorištenjeObjekta_IspišiTrenutnoVrijemeIspisujeVrijednost()
         {
-            DateTime trenutnoVrijeme = DateTime.Now;
+            VremenskiInterval vi = new VremenskiInterval();
             KorištenjeObjekata.IspišiTrenutnoVrijeme();
-            DateTime ispisanoVrijeme = DateTime.Parse(cw.GetString());
-            Assert.IsTrue((trenutnoVrijeme - ispisanoVrijeme).Seconds <= 1);
+
+            DateTime ispisanoVrijeme = DateTime.ParseExact(cw.GetString(), CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern, CultureInfo.CurrentCulture);
+            Assert.IsTrue(vi.JeLiVrijemeUDanuUMinutamaIzIntervala(ispisanoVrijeme));
         }
 
         [TestMethod]
