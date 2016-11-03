@@ -6,10 +6,15 @@ namespace Vsite.CSharp
     class Program
     {
         // TODO: Prekopirati definiciju klase s destruktorom iz prethodnog primjera
-        // TODO: Staviti točku prekida (breakpoint) u destruktor, pokrenuti program i pogledati zadnje ispise prije prekida izvođenja.
+        // TODO: Staviti točku prekida (breakpoint) u destruktor, pokrenuti program i pogledati 
+        //zadnje ispise prije prekida izvođenja.
         public class KlasaSDestruktorom
         {
-
+            ~KlasaSDestruktorom()
+            {
+                Console.WriteLine($"Destruktor objekta br. {0}.", RedniBroj);
+                Debug.WriteLine($"Destruktor objekta br. {0}.", RedniBroj);
+            }
         }
 
         static void Main(string[] args)

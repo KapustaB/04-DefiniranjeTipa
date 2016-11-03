@@ -19,7 +19,8 @@ namespace Vsite.CSharp
         //u konzolu i u Output prozor ispisati: "Destruktor objekta br. {RedniBroj}."
         ~KlasaSDestruktorom()
         {
-            Console.WriteLine("Destruktor objekta br. {0}.", RedniBroj);
+            Console.WriteLine($"Destruktor objekta br. {0}.", RedniBroj);
+            Debug.WriteLine($"Destruktor objekta br. {0}.", RedniBroj);
         }
 
         public readonly int RedniBroj; // redni broj objekta

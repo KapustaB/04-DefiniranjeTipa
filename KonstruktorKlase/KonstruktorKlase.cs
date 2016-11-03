@@ -15,8 +15,11 @@ namespace Vsite.CSharp
         {
             // TODO: Stvoriti objekt klase Osoba i ispisati vrijednosti članova Ime, Prezime, 
             //DatumRođenja
-            
 
+            Osoba o = new Osoba();
+            Console.WriteLine(o.Ime);
+            Console.WriteLine(o.Prezime);
+            Console.WriteLine(o.DatumRođenja);
 
             // TODO: U klasu Osoba dodati prazni konstruktor koji inicijalizira članove objekta 
             //na neku vrijednost, ponovno pokrenuti program i provjeriti ispis.
